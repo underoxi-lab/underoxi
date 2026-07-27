@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Состав команды — UNDEROXI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site-base.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+--bg:#070c16;--bg2:#101a2c;--card:rgba(20,30,48,0.78);
+--yellow:#ffd666;--gold:#ffb31a;--muted:#a8bdd4;--border:rgba(255,255,255,0.1);
+--ease-soft:cubic-bezier(.33,1,.68,1);
+}
+html{scroll-behavior:smooth;}
+body{
+font-family:'Nunito',system-ui,sans-serif;background:var(--bg);color:white;
+overflow-x:hidden;min-height:100vh;
+-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;
+}
+.bg{
+position:fixed;inset:0;z-index:-10;
+background:linear-gradient(167deg,var(--bg) 0%,#0b1528 45%,var(--bg2) 100%);
+}
+.bg::before{
+content:'';position:absolute;inset:0;
+background-image:radial-gradient(rgba(255,255,255,0.055) 1px,transparent 1px);
+background-size:44px 44px;opacity:.42;
+mask-image:radial-gradient(ellipse 85% 70% at 50% 40%,black,transparent);
+}
+nav{
+position:fixed;top:18px;left:50%;transform:translateX(-50%);
+width:calc(100% - 40px);max-width:1400px;
+background:linear-gradient(135deg,rgba(14,21,38,.88),rgba(9,13,26,.76));
+border:1px solid rgba(255,214,102,.14);
+backdrop-filter:blur(24px) saturate(1.2);
+border-radius:24px;padding:0.85rem 1.35rem;
+display:flex;align-items:center;justify-content:space-between;gap:1rem;z-index:999;
+box-shadow:0 4px 24px rgba(0,0,0,.25);
+}
+.logo{display:flex;align-items:center;gap:.8rem;font-weight:900;font-size:1.35rem;text-decoration:none;color:white;font-family:'Comfortaa',system-ui,sans-serif;}
+.logo-box{width:42px;height:42px;border-radius:14px;background:linear-gradient(140deg,#fff8e7,#ffd54a 28%,#ffb31a 55%,#fff4c8 76%);display:flex;align-items:center;justify-content:center;color:#111;font-weight:900;box-shadow:0 8px 28px rgba(255,214,102,0.32);}
+.nav-links{display:flex;gap:.35rem;list-style:none;align-items:center;}
+.nav-links a{text-decoration:none;color:var(--muted);padding:.65rem 1rem;border-radius:14px;transition:all .25s;font-weight:600;font-size:.95rem;}
+.nav-links a:hover{background:rgba(255,255,255,.06);color:white;}
+.nav-links a[aria-current="page"]{background:rgba(30,58,95,.72);color:#eaf2ff;border:1px solid rgba(255,214,102,.22);}
+.discord-btn{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;min-width:46px;border-radius:14px;background:linear-gradient(145deg,#7b8cff 0%,#5865f2 45%,#4752d4 100%);color:#fff;text-decoration:none;box-shadow:0 8px 24px rgba(88,101,242,.42);transition:transform .3s,box-shadow .3s;}
+.discord-btn:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(120,146,255,.55);}
+.discord-btn svg{display:block;width:24px;height:24px;}
+.container{max-width:1200px;margin:0 auto;padding:120px 20px 60px;}
+header{text-align:center;margin-bottom:50px;}
+h1{font-family:'Comfortaa',system-ui,sans-serif;font-size:clamp(2rem,5vw,3rem);margin-bottom:10px;
+background:linear-gradient(105deg,#fff,#dbeafe 28%,var(--yellow) 50%,#fff8db 64%,#93c5fd 88%,#fff);
+background-size:260% auto;-webkit-background-clip:text;background-clip:text;color:transparent;}
+.subtitle{color:var(--muted);font-size:1.1rem;}
+
+/* Сетка команды */
+.team-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;}
+
+.member-card{
+background:rgba(15, 23, 42, 0.6);
+border:1px solid rgba(255, 255, 255, 0.08);
+border-radius:24px;
+padding:32px 24px;
+text-align:center;
+transition:all 0.4s var(--ease-soft);
+backdrop-filter:blur(12px);
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:12px;
+}
+.member-card:hover{
+transform:translateY(-8px);
+border-color:rgba(255, 214, 102, 0.3);
+background:rgba(20, 30, 48, 0.8);
+box-shadow:0 20px 40px rgba(0,0,0,0.4);
+}
+
+.member-head{
+width:100px;
+height:100px;
+image-rendering:pixelated;
+transition:transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+filter:drop-shadow(0 8px 16px rgba(0,0,0,0.4));
+background:transparent !important; /* Убираем фон */
+object-fit:contain;
+}
+.member-card:hover .member-head{
+transform:scale(1.15) translateY(-5px);
+filter:drop-shadow(0 12px 24px rgba(0,0,0,0.6));
+}
+
+.member-name{
+font-size:1.5rem;
+font-weight:900;
+color:#fff;
+letter-spacing:0.5px;
+text-shadow:0 2px 4px rgba(0,0,0,0.3);
+}
+
+.member-role{
+display:inline-flex;
+align-items:center;
+padding:6px 14px;
+border-radius:10px;
+font-size:0.75rem;
+font-weight:800;
+text-transform:uppercase;
+letter-spacing:1px;
+background:rgba(255, 214, 102, 0.15);
+color:var(--yellow);
+border:1px solid rgba(255, 214, 102, 0.2);
+}
+.role-owner{background:rgba(255, 87, 87, 0.15);color:#ff5e5e;border-color:rgba(255, 94, 94, 0.3);}
+.role-coowner{background:rgba(255, 179, 26, 0.15);color:#ffb31a;border-color:rgba(255, 179, 26, 0.3);}
+.role-admin{background:rgba(255,80,80,.2);color:#ff6b6b;}
+.role-moderator{background:rgba(80,150,255,.2);color:#6b9fff;}
+.role-helper{background:rgba(80,255,150,.2);color:#6bff9f;}
+
+.member-description{color:var(--muted);font-size:.9rem;line-height:1.5;margin-bottom:12px;min-height:40px;}
+
+.member-discord{
+display:inline-flex;align-items:center;justify-content:center;gap:8px;
+padding:8px 18px;border-radius:12px;background:rgba(88,101,242,.2);color:#8593ff;
+text-decoration:none;font-weight:700;font-size:.9rem;transition:background .3s,color .3s;
+}
+.member-discord:hover{background:rgba(88,101,242,.35);color:#a8b3ff;}
+
+/* Загрузка */
+#loading{text-align:center;font-size:1.3rem;color:var(--muted);padding:50px;}
+
+/* Панель владельца */
+.owner-panel{
+display:none;margin-top:50px;padding:25px;border-radius:24px;
+background:linear-gradient(145deg,rgba(255,214,102,.08),rgba(15,24,42,.9));
+border:1px solid rgba(255,214,102,.2);
+}
+.owner-panel.visible{display:block;}
+.owner-panel h2{font-family:'Comfortaa',system-ui,sans-serif;font-size:1.3rem;margin-bottom:15px;color:var(--yellow);}
+.owner-panel .info{color:var(--muted);font-size:.9rem;margin-bottom:15px;}
+
+.owner-form{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;}
+.owner-form .full{grid-column:1/-1;}
+.owner-form label{font-weight:700;font-size:.88rem;color:#dbeafe;display:block;margin-bottom:4px;}
+.owner-form input,.owner-form select,.owner-form textarea{
+width:100%;padding:.7rem .85rem;border-radius:12px;border:1px solid var(--border);
+background:rgba(255,255,255,.06);color:#fff;font:inherit;font-weight:600;
+transition:border-color .25s,box-shadow .25s;
+}
+.owner-form input:focus,.owner-form select:focus,.owner-form textarea:focus{
+outline:none;border-color:rgba(255,214,102,.5);box-shadow:0 0 0 3px rgba(255,214,102,.13);
+}
+.owner-form select option{background:#101a2c;color:#fff;}
+.owner-form textarea{min-height:60px;resize:vertical;}
+
+.owner-actions{display:flex;gap:10px;flex-wrap:wrap;}
+.btn{
+display:inline-flex;align-items:center;justify-content:center;gap:.4rem;
+padding:.75rem 1.3rem;border-radius:14px;border:none;font-weight:800;font-size:.92rem;
+cursor:pointer;transition:transform .25s,box-shadow .25s,filter .25s;font-family:inherit;
+}
+.btn:hover{transform:translateY(-2px);}
+.btn-gold{background:linear-gradient(135deg,var(--yellow),var(--gold));color:#111;box-shadow:0 6px 20px rgba(255,179,26,.3);}
+.btn-gold:hover{box-shadow:0 10px 28px rgba(255,179,26,.4);}
+.btn-red{background:rgba(220,53,69,.7);color:#fff;border:1px solid rgba(255,255,255,.1);}
+.btn-red:hover{background:rgba(220,53,69,.9);}
+.btn-outline{background:rgba(255,255,255,.07);color:#fff;border:1px solid var(--border);}
+.btn-outline:hover{background:rgba(255,255,255,.12);}
+.btn-sm{padding:.5rem .9rem;font-size:.82rem;}
+
+/* Список участников в панели */
+.member-list{display:grid;gap:10px;margin-top:15px;}
+.member-item{
+display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:14px;
+background:rgba(255,255,255,.04);border:1px solid var(--border);
+transition:background .2s;
+}
+.member-item:hover{background:rgba(255,255,255,.07);}
+.member-item img{width:40px;height:40px;border-radius:8px;image-rendering:pixelated;}
+.member-item .info{flex:1;}
+.member-item .info strong{display:block;font-size:.95rem;}
+.member-item .info span{color:var(--muted);font-size:.82rem;}
+.member-item .del-btn{padding:.35rem .65rem;border-radius:8px;border:1px solid rgba(255,100,100,.3);background:rgba(255,50,50,.15);color:#ff6b6b;cursor:pointer;font-weight:700;font-size:.8rem;transition:background .2s;}
+.member-item .del-btn:hover{background:rgba(255,50,50,.3);}
+
+/* Парольный вход */
+.owner-login{
+display:none;margin-top:50px;padding:25px;border-radius:24px;
+background:linear-gradient(145deg,rgba(15,24,42,.9),rgba(9,13,26,.8));
+border:1px solid var(--border);text-align:center;max-width:400px;margin-left:auto;margin-right:auto;
+}
+.owner-secret-toggle{
+position:fixed;bottom:10px;width:16px;height:16px;border:none;border-radius:50%;
+background:rgba(255,214,102,.08);cursor:pointer;opacity:.03;z-index:10000;
+transition:opacity .25s,transform .25s,background .25s;box-shadow:none;
+padding:0;
+}
+.owner-secret-toggle.left{left:10px;}
+.owner-secret-toggle.right{right:10px;}
+.owner-secret-toggle:hover,.owner-secret-toggle:focus{
+opacity:.55;transform:scale(1.08);background:rgba(255,214,102,.18);
+outline:none;
+}
+.owner-login h2{font-family:'Comfortaa',system-ui,sans-serif;font-size:1.2rem;margin-bottom:10px;}
+.owner-login p{color:var(--muted);font-size:.9rem;margin-bottom:15px;}
+.owner-login input{
+width:100%;padding:.75rem;border-radius:12px;border:1px solid var(--border);
+background:rgba(255,255,255,.06);color:#fff;font:inherit;font-weight:600;text-align:center;
+margin-bottom:12px;transition:border-color .25s;
+}
+.owner-login input:focus{outline:none;border-color:rgba(255,214,102,.5);}
+.owner-login .error{color:#ff6b6b;font-size:.85rem;margin-top:8px;display:none;}
+
+.toast{
+position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(100px);
+background:#16a34a;color:white;padding:.8rem 1.5rem;border-radius:12px;
+transition:all .5s;opacity:0;z-index:9999;
+}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1;}
+.toast.error{background:#dc3545;}
+
+footer{padding:2rem;text-align:center;color:var(--muted);font-size:.9rem;border-top:1px solid var(--border);max-width:1200px;margin:auto;}
+
+@media(max-width:720px){
+nav{padding:0.65rem 1rem;flex-wrap:wrap;}
+.nav-links{order:3;width:100%;justify-content:center;padding-top:.5rem;gap:.2rem;}
+.nav-links a{padding:.5rem .7rem;font-size:.88rem;}
+.owner-form{grid-template-columns:1fr;}
+.team-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+
+<nav>
+<a href="index.html" class="logo"><div class="logo-box">U</div><span>UNDEROXI</span></a>
+<ul class="nav-links">
+<li><a href="index.html">Главная</a></li>
+<li><a href="rules.html">Правила</a></li>
+<li><a href="how-to-join.html">Как попасть</a></li>
+<li><a href="team.html" aria-current="page">Состав</a></li>
+<li><a href="support.html">Поддержка</a></li>
+</ul>
+<a class="discord-btn" href="https://discord.gg/2YPHghXRbz" target="_blank" rel="noopener" aria-label="Discord">
+<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.662a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+</a>
+</nav>
+
+<div class="container">
+<header>
+<h1>Наша команда</h1>
+<p class="subtitle">Люди, которые создают и поддерживают UNDEROXI</p>
+</header>
+
+<div id="loading">Загрузка состава...</div>
+<div class="team-grid" id="team-container"></div>
+
+<button class="owner-secret-toggle left" type="button" onclick="openOwnerAccess()" aria-label="Скрытая панель" title="Скрытая панель"></button>
+<button class="owner-secret-toggle right" type="button" data-secret-button data-digit="2" onclick="revealSecretDigit(this, 2)" aria-label="Скрытая цифра" title="Скрытая цифра"></button>
+
+<!-- Вход для владельца -->
+<div class="owner-login" id="ownerLogin">
+<input type="password" id="ownerPass" placeholder="••••••" />
+<button class="btn btn-gold" onclick="ownerLogin()" style="width:100%;">Войти</button>
+<div class="error" id="loginError">Неверный пароль</div>
+</div>
+
+<!-- Панель владельца -->
+<div class="owner-panel" id="ownerPanel">
+<h2>⚙️ Управление составом</h2>
+<p class="info">Данные берутся из файла team-data.json в репозитории. После публикации изменений на GitHub состав обновляется автоматически для всех.</p>
+
+<div class="owner-form">
+<div class="full">
+<label>Никнейм в игре *</label>
+<input type="text" id="fNickname" placeholder="Например: Lexsdar" />
+</div>
+<div>
+<label>Роль *</label>
+<input type="text" id="fRole" list="roleList" placeholder="Например: Владелец, Спонсор+..." />
+<datalist id="roleList">
+<option value="👑 Владелец">
+<option value="⭐ Совладелец">
+<option value="🛡️ Администратор">
+<option value="🔨 Модератор">
+<option value="💚 Хелпер">
+<option value="💰 Спонсор+">
+<option value="🎨 Билдер">
+<option value="🎮 Ивентолог">
+</datalist>
+</div>
+<div>
+<label>Приоритет (0 = выше всех)</label>
+<input type="number" id="fPriority" value="10" min="0" max="100" />
+</div>
+<div class="full">
+<label>Чем занимается</label>
+<textarea id="fDescription" placeholder="Например: Основатель сервера, отвечаю за развитие"></textarea>
+</div>
+<div class="full">
+<label>Голова (PNG/JPG) *</label>
+<input type="file" id="fHeadFile" accept="image/png,image/jpeg,image/jpg" required />
+<small style="color:var(--muted);font-size:.82rem;">Загрузи файл с компьютера. Рекомендуется PNG 64x64 или больше.</small>
+</div>
+<div class="full">
+<label>Discord (опционально)</label>
+<input type="text" id="fDiscord" placeholder="discord.gg/..." />
+</div>
+</div>
+
+<div class="owner-actions">
+<button class="btn btn-gold" onclick="addMember()">➕ Добавить участника</button>
+<button class="btn btn-outline" onclick="downloadTeamDataFile()">⬇️ Скачать team-data.json</button>
+<button class="btn btn-outline" onclick="ownerLogout()">🚪 Выйти</button>
+</div>
+
+<h3 style="margin-top:25px;font-size:1rem;color:var(--muted);">Текущие участники</h3>
+<div class="member-list" id="memberList"></div>
+</div>
+</div>
+
+<footer>© 2026 UNDEROXI — Vanilla Minecraft Server</footer>
+<div class="toast" id="toast"></div>
+
+<script>
+// ── Configuration ──────────────────────────────────────────────
+var API_BASE = window.location.origin + '/api';
+var DATA_URL = API_BASE + '/team-data';
+var STORE_KEY = 'underoxi_team_v1';
+var teamData = [];
+var refreshTimer = null;
+
+var roleClasses = {
+  'Владелец': 'role-owner',
+  'Совладелец': 'role-coowner',
+  'Администратор': 'role-admin',
+  'Модератор': 'role-moderator',
+  'Хелпер': 'role-helper'
+};
+
+// ── Data helpers ───────────────────────────────────────────────
+function loadData() {
+  return teamData;
+}
+
+function saveData(data) {
+  teamData = Array.isArray(data) ? data : [];
+  try { localStorage.setItem(STORE_KEY, JSON.stringify(teamData)); } catch (e) {}
+}
+
+// ── Render team cards ──────────────────────────────────────────
+function renderTeam() {
+  var container = document.getElementById('team-container');
+  var loading = document.getElementById('loading');
+  var data = loadData();
+  loading.style.display = 'none';
+  if (!data || data.length === 0) {
+    container.innerHTML = '<p style="text-align:center;width:100%;color:var(--muted);padding:40px;">Команда пока не сформирована</p>';
+    return;
+  }
+  container.innerHTML = '';
+  data.forEach(function(member) {
+    var card = document.createElement('div');
+    card.className = 'member-card';
+    var headUrl = member.head_url || 'https://mc-heads.net/avatar/' + member.nickname + '/100';
+    var roleClass = roleClasses[member.role] || 'role-helper';
+    var descHtml = member.description ? '<p class="member-description">' + escapeHtml(member.description) + '</p>' : '';
+    var discHtml = '';
+    if (member.discord) {
+      var discUrl = member.discord.indexOf('http') === 0 ? member.discord : 'https://' + member.discord;
+      discHtml = '<a href="' + discUrl + '" target="_blank" rel="noopener" class="member-discord"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.662a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg> Discord</a>';
+    }
+    card.innerHTML = '<img src="' + headUrl + '" alt="' + escapeHtml(member.nickname) + '" class="member-head" loading="lazy" onerror="this.src=\'https://mc-heads.net/avatar/Steve/100\'"><span class="member-role ' + roleClass + '">' + escapeHtml(member.role) + '</span><span class="member-name">' + escapeHtml(member.nickname) + '</span>' + descHtml + discHtml;
+    container.appendChild(card);
+  });
+}
+
+function escapeHtml(str) {
+  if (!str) return '';
+  var div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
+
+// ── Fetch team from API ────────────────────────────────────────
+function fetchTeam() {
+  var loading = document.getElementById('loading');
+  fetch(DATA_URL + '?t=' + Date.now(), { cache: 'no-store' })
+    .then(function(response) {
+      if (!response.ok) throw new Error('Network error');
+      return response.json();
+    })
+    .then(function(data) {
+      saveData(Array.isArray(data) ? data : []);
+      renderTeam();
+      loading.style.display = 'none';
+    })
+    .catch(function() {
+      try {
+        var fallbackData = JSON.parse(localStorage.getItem(STORE_KEY)) || [];
+        saveData(Array.isArray(fallbackData) ? fallbackData : []);
+      } catch (e) {}
+      renderTeam();
+      loading.style.display = 'none';
+      showToast('Не удалось загрузить данные команды.', true);
+    });
+}
+
+// ── Owner login ────────────────────────────────────────────────
+function openOwnerAccess() {
+  var loginBox = document.getElementById('ownerLogin');
+  if (loginBox) {
+    loginBox.style.display = 'block';
+    var passInput = document.getElementById('ownerPass');
+    if (passInput) { passInput.focus(); }
+  }
+}
+
+function ownerLogin() {
+  var pass = document.getElementById('ownerPass').value.trim();
+  var loginBtn = document.querySelector('#ownerLogin .btn-gold');
+  var errorEl = document.getElementById('loginError');
+  
+  if (!pass) {
+    errorEl.textContent = 'Введите пароль';
+    errorEl.style.display = 'block';
+    return;
+  }
+  
+  // Disable button to prevent double submit
+  if (loginBtn) { loginBtn.disabled = true; loginBtn.textContent = 'Вход...'; }
+  errorEl.style.display = 'none';
+  
+  fetch(API_BASE + '/login', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ password: pass }),
+    credentials: 'include'
+  })
+  .then(function(response) {
+    return response.json().then(function(data) {
+      return { status: response.status, data: data };
+    });
+  })
+  .then(function(result) {
+    if (result.status === 200 && result.data.ok) {
+      document.getElementById('ownerLogin').style.display = 'none';
+      document.getElementById('ownerPanel').classList.add('visible');
+      document.getElementById('ownerPass').value = '';
+      renderMemberList();
+      showToast('Добро пожаловать!');
+    } else if (result.status === 429) {
+      errorEl.textContent = 'Слишком много попыток. Попробуйте позже.';
+      errorEl.style.display = 'block';
+    } else {
+      errorEl.textContent = 'Неверный пароль';
+      errorEl.style.display = 'block';
+    }
+  })
+  .catch(function() {
+    errorEl.textContent = 'Ошибка соединения с сервером';
+    errorEl.style.display = 'block';
+  })
+  .finally(function() {
+    if (loginBtn) { loginBtn.disabled = false; loginBtn.textContent = 'Войти'; }
+  });
+}
+
+// ── Owner logout ───────────────────────────────────────────────
+function ownerLogout() {
+  fetch(API_BASE + '/logout', {
+    method: 'POST',
+    credentials: 'include'
+  })
+  .then(function() {
+    document.getElementById('ownerPanel').classList.remove('visible');
+    document.getElementById('ownerLogin').style.display = 'none';
+    document.getElementById('ownerPass').value = '';
+    document.getElementById('loginError').style.display = 'none';
+    showToast('Вы вышли из панели');
+  })
+  .catch(function() {
+    // Still hide panel even if request fails
+    document.getElementById('ownerPanel').classList.remove('visible');
+    document.getElementById('ownerLogin').style.display = 'none';
+  });
+}
+
+// ── Check session on page load ─────────────────────────────────
+function checkSession() {
+  fetch(API_BASE + '/verify-session', {
+    method: 'GET',
+    credentials: 'include'
+  })
+  .then(function(response) { return response.json(); })
+  .then(function(data) {
+    if (data.authenticated) {
+      document.getElementById('ownerPanel').classList.add('visible');
+      renderMemberList();
+    }
+  })
+  .catch(function() {
+    // Not authenticated, that's fine
+  });
+}
+
+// ── Download team-data.json ────────────────────────────────────
+function downloadTeamDataFile() {
+  var data = loadData();
+  var blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  var url = URL.createObjectURL(blob);
+  var link = document.createElement('a');
+  link.href = url;
+  link.download = 'team-data.json';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
+  showToast('Файл team-data.json скачан');
+}
+
+// ── Auto-refresh team display ──────────────────────────────────
+function startAutoRefresh() {
+  if (refreshTimer) { clearInterval(refreshTimer); }
+  refreshTimer = setInterval(function() { fetchTeam(); }, 15000);
+}
+
+// ── Add member (saves to server) ───────────────────────────────
+function addMember() {
+  var nickname = document.getElementById('fNickname').value.trim();
+  var role = document.getElementById('fRole').value.trim();
+  var priority = parseInt(document.getElementById('fPriority').value) || 10;
+  var description = document.getElementById('fDescription').value.trim();
+  var discord = document.getElementById('fDiscord').value.trim();
+  var headFileInput = document.getElementById('fHeadFile');
+
+  if (!nickname) { showToast('Введите никнейм!', true); return; }
+  if (!headFileInput || !headFileInput.files || !headFileInput.files[0]) {
+    showToast('Загрузите голову!', true);
+    return;
+  }
+
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    var data = loadData();
+    data.push({
+      id: Date.now().toString(),
+      nickname: nickname,
+      role: role,
+      priority: priority,
+      description: description,
+      discord: discord || null,
+      head_url: e.target.result
+    });
+
+    // Save to server
+    saveToServer(data, function(success) {
+      if (success) {
+        document.getElementById('fNickname').value = '';
+        document.getElementById('fRole').value = '';
+        document.getElementById('fDescription').value = '';
+        document.getElementById('fDiscord').value = '';
+        if (headFileInput) headFileInput.value = '';
+        renderMemberList();
+        showToast('✅ ' + nickname + ' добавлен и сохранён на сервере');
+      } else {
+        // Fallback: save locally only
+        saveData(data);
+        renderMemberList();
+        showToast('✅ ' + nickname + ' добавлен локально. Ошибка сохранения на сервер.', true);
+      }
+    });
+  };
+  reader.readAsDataURL(headFileInput.files[0]);
+}
+
+// ── Delete member (saves to server) ────────────────────────────
+function deleteMember(id, nickname) {
+  if (!confirm('Удалить ' + nickname + ' из команды?')) return;
+  var data = loadData();
+  data = data.filter(function(m) { return m.id != id; });
+  
+  saveToServer(data, function(success) {
+    if (success) {
+      renderMemberList();
+      showToast('🗑️ ' + nickname + ' удалён');
+    } else {
+      saveData(data);
+      renderMemberList();
+      showToast('🗑️ ' + nickname + ' удалён локально. Ошибка сохранения на сервер.', true);
+    }
+  });
+}
+
+// ── Save data to server via API ────────────────────────────────
+function saveToServer(members, callback) {
+  fetch(API_BASE + '/team-data', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ members: members }),
+    credentials: 'include'
+  })
+  .then(function(response) {
+    return response.json().then(function(data) {
+      return { status: response.status, data: data };
+    });
+  })
+  .then(function(result) {
+    if (result.status === 200 && result.data.ok) {
+      // Update local data with server response
+      if (result.data.members) {
+        saveData(result.data.members);
+      } else {
+        saveData(members);
+      }
+      callback(true);
+    } else if (result.status === 401) {
+      showToast('Сессия истекла. Войдите снова.', true);
+      ownerLogout();
+      callback(false);
+    } else {
+      showToast('Ошибка сервера: ' + (result.data.message || 'неизвестная ошибка'), true);
+      callback(false);
+    }
+  })
+  .catch(function() {
+    showToast('Ошибка соединения с сервером. Данные сохранены локально.', true);
+    saveData(members);
+    callback(false);
+  });
+}
+
+// ── Render member list in panel ────────────────────────────────
+function renderMemberList() {
+  var container = document.getElementById('memberList');
+  var data = loadData();
+  if (!data || data.length === 0) {
+    container.innerHTML = '<p style="color:var(--muted);">Пока нет участников</p>';
+    return;
+  }
+  container.innerHTML = '';
+  data.forEach(function(m) {
+    var item = document.createElement('div');
+    item.className = 'member-item';
+    var headUrl = m.head_url || 'https://mc-heads.net/avatar/' + m.nickname + '/40';
+    item.innerHTML = '<img src="' + headUrl + '" alt="' + escapeHtml(m.nickname) + '" onerror="this.src=\'https://mc-heads.net/avatar/Steve/40\'"><div class="info"><strong>' + escapeHtml(m.nickname) + '</strong><span>' + escapeHtml(m.role) + ' · приоритет: ' + m.priority + '</span></div><button class="del-btn" onclick="deleteMember(\'' + m.id + '\',\'' + escapeHtml(m.nickname).replace(/'/g, "\\'") + '\')">✕</button>';
+    container.appendChild(item);
+  });
+}
+
+// ── Toast notifications ────────────────────────────────────────
+function showToast(msg, isError) {
+  var toast = document.getElementById('toast');
+  toast.textContent = msg;
+  toast.className = 'toast' + (isError ? ' error' : '');
+  toast.classList.add('show');
+  setTimeout(function() { toast.classList.remove('show'); }, 3000);
+}
+
+// ── Init ───────────────────────────────────────────────────────
+fetchTeam();
+startAutoRefresh();
+checkSession();
+</script>
+<div id="secretToast" style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:#111827;color:#fff;padding:.7rem 1rem;border-radius:999px;font-size:.9rem;opacity:0;pointer-events:none;transition:all .25s;z-index:10000;"></div>
+<script>
+function revealSecretDigit(btnOrDigit, digit) {
+  var value = digit;
+  if (typeof btnOrDigit === 'string') {
+    value = btnOrDigit;
+  }
+
+  var toast = document.getElementById('secretToast');
+  if (toast) {
+    toast.textContent = 'Цифра: ' + (value || '2');
+    toast.style.opacity = '1';
+    toast.style.transform = 'translateX(-50%) translateY(0)';
+    clearTimeout(window.__secretToastTimer);
+    window.__secretToastTimer = setTimeout(function() {
+      toast.style.opacity = '0';
+      toast.style.transform = 'translateX(-50%) translateY(20px)';
+    }, 1800);
+  }
+
+  if (btnOrDigit && typeof btnOrDigit === 'object' && btnOrDigit.blur) {
+    btnOrDigit.blur();
+  }
+}
+</script>
+</body>
+</html>

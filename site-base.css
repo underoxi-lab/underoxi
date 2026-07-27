@@ -1,0 +1,38 @@
+:root {
+  --page-grid-color: rgba(255,255,255,0.045);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #060b13 !important;
+  background-image:
+    radial-gradient(ellipse 72% 44% at 10% -8%, rgba(255,214,102,.18), transparent 58%),
+    radial-gradient(ellipse 54% 44% at 100% 5%, rgba(147,197,253,.16), transparent 58%),
+    radial-gradient(ellipse 60% 46% at 44% 108%, rgba(110,231,183,.12), transparent 62%),
+    linear-gradient(165deg, #070c16, #101a2c 58%, #08111f) !important;
+  background-attachment: fixed;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: linear-gradient(var(--page-grid-color) 1px, transparent 1px), linear-gradient(90deg, var(--page-grid-color) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse 82% 72% at 50% 30%, black, transparent 78%);
+  opacity: .75;
+}
+
+body.index-page .hero-intro {
+  padding-top: 120px;
+}
+
+.hero-intro .lead,
+.lead {
+  max-width: 720px;
+}

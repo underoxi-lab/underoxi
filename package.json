@@ -1,0 +1,20 @@
+{
+  "name": "underoxi-site",
+  "version": "2.0.0",
+  "description": "UNDEROXI Minecraft Server Site — with secure server-side owner authentication",
+  "main": "index.js",
+  "scripts": {
+    "hash-password": "node scripts/hash-password.js",
+    "vercel-build": "echo 'Static site, no build needed'",
+    "dev": "vercel dev"
+  },
+  "keywords": ["minecraft", "underoxi", "server", "team"],
+  "author": "UNDEROXI Team",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cookie": "^2.0.1",
+    "uuid": "^14.0.1"
+  }
+}
